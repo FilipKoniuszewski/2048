@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+
 :root {
     --cell-radius: 1vmin;
 }
@@ -90,6 +92,20 @@ body {
 .filter-background {
     filter: brightness(50%);
 }
+
+.footer {
+    font-family: "lato", "sans-serif";
+    position: absolute;
+    bottom: 0.7vmin;
+    left: 0;
+    right: 0;
+    color: #337799;
+    font-size: 1.3vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 @keyframes show {
