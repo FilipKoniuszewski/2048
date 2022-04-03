@@ -1,0 +1,100 @@
+:root {
+    --cell-radius: 1vmin;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Arial', 'sans-serif';
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+    background: #CCC;
+    gap: var(--cell-gap);
+    padding: var(--cell-gap);
+    border-radius: var(--cell-radius);
+    position: relative;
+
+}
+
+body {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 7.5vmin;
+
+}
+
+.cell {
+    background: #AAA;
+    border-radius: var(--cell-radius);
+}
+
+.tile {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-radius: var(--cell-radius);
+    top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+    left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+    font-weight: bold;
+    background-color: hsl(200, 50%, var(--background-lightness));
+    color: hsl(200, 25%, var(--text-lightness));
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out;
+}
+
+#lost-container {
+    opacity: 0;
+    position: absolute;
+    top: 45vmin;
+    background: #111111;
+    color: #CCC;
+    font-size: 5vmin;
+    padding: 4vmin 8vmin;
+    border-radius: var(--cell-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vmin;
+    transition: 100ms ease-in-out;
+}
+
+.play-again {
+    background: #337799;
+    padding: 1vmin 3vmin;
+    font-size: 2vmin;
+    border-radius: var(--cell-radius);
+    color: #111111;
+    transition: 100ms ease-in-out;
+}
+
+.play-again:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.show-result {
+    opacity: 1 !important;
+    top: 35vmin !important;
+}
+
+.filter-background {
+    filter: brightness(50%);
+}
+
+
+@keyframes show {
+    0% {
+        opacity: .5;
+        transform: scale(0);
+    }
+}
